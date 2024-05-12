@@ -1,4 +1,4 @@
-import { getPosts } from '@/app/api/post'
+import { deletePost, getPosts } from '@/app/api/post'
 import { PostItem } from './_components/post-item'
 
 function formatKoreanDate(dateTime: Date): string {
@@ -21,6 +21,7 @@ const DiaryPage = async () => {
       {posts?.map((post, index) => (
         <PostItem
           key={post.id}
+          id={post.id}
           index={index + 1}
           title={post.title}
           date={formatKoreanDate(post.createdAt)}

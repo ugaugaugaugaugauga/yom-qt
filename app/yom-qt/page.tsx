@@ -106,8 +106,10 @@ const YomQTPage = () => {
     pauseTimer()
   }
 
+  const [isLoading, setIsLoading] = useState(false)
   const onSubmit = async () => {
     try {
+      setIsLoading(true)
       const post = await createPost({
         applyContent: apply,
         impressionContent: impression,
@@ -118,6 +120,8 @@ const YomQTPage = () => {
       router.push('/dashboard/diary')
     } catch (error) {
       console.log('error', error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -189,7 +193,7 @@ const YomQTPage = () => {
               onClick={onSubmit}
               variant={'ivory'}
               className='md:w-[300px] w-full mx-10 sm:mx-0 '
-              disabled={!isFinished}
+              disabled={!isFinished || isLoading}
             >
               QT Diary 작성하기
             </Button>

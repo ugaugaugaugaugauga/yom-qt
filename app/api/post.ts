@@ -66,3 +66,13 @@ export const getPost = async (postId: string) => {
 
   return post
 }
+
+export const deletePost = async (postId: string) => {
+  await db.post.delete({
+    where: {
+      id: postId,
+    },
+  })
+
+  revalidatePath('/dashboard/diary')
+}
