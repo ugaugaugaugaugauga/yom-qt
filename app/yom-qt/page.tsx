@@ -120,8 +120,6 @@ const YomQTPage = () => {
       router.push('/dashboard/diary')
     } catch (error) {
       console.log('error', error)
-    } finally {
-      setIsLoading(false)
     }
   }
 

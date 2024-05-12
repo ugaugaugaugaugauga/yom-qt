@@ -13,6 +13,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// model User {
+//   id        String      @id @default(cuid())
+//   // ...user data
+
+//   profile    Profile
+//   // ... one to one data
+
+//   posts      Post[]
+//   comments   Comment[]
+//   subscribes Sibscribe[]
+//   cupones    Cupone[]
+//   orders     Order[]
+//   channels   Channel[]
+//   //  ...one to many data
+// }
+
 
 model Post {
   id        String      @id @default(cuid())
